@@ -32,14 +32,17 @@ namespace TechJobsPersistent.Controllers
         [HttpGet("/Add")]
         public IActionResult AddJob()
         {
-            AddJobViewModel addJobViewModel = new AddJobViewModel();
+            AddJobViewModel addJobViewModel = new AddJobViewModel(context.Employers.ToList(), context.Skills.ToList());
 
             return View(addJobViewModel);
         }
 
         public IActionResult ProcessAddJobForm()
         {
-            return View();
+            // Add AddJobView and validation section 4 add new Job object??
+            AddJobViewModel addJobViewModel = new AddJobViewModel(context.Employers.ToList(), context.Skills.ToList());
+
+            return View(addJobViewModel);
         }
 
         public IActionResult Detail(int id)
