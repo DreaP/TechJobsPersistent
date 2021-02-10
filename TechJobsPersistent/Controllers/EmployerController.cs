@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using TechJobsPersistent.Data;
 using TechJobsPersistent.Models;
 using TechJobsPersistent.ViewModels;
 
@@ -14,47 +12,24 @@ namespace TechJobsPersistent.Controllers
 {
     public class EmployerController : Controller
     {
-        private JobDbContext context;
-
-        public EmployerController(JobDbContext dbContext)
-        {
-            context = dbContext;
-        }
         // GET: /<controller>/
         public IActionResult Index()
         {
-            List<Employer> employers = context.Employers.ToList();
-            return View(employers);
+            return View();
         }
-        
+
         public IActionResult Add()
         {
-            AddEmployerViewModel addEmployerViewModel = new AddEmployerViewModel();
-            return View(addEmployerViewModel);
+            return View();
         }
 
-        [HttpPost]
-        public IActionResult ProcessAddEmployerForm(AddEmployerViewModel addEmployerViewModel)
+        public IActionResult ProcessAddEmployerForm()
         {
-            if (ModelState.IsValid)
-            {
-                    Employer newEmployer = new Employer
-                    {
-                        Name = addEmployerViewModel.Name,
-                        Location = addEmployerViewModel.Location
-                    };
-            }
-
-            return View(addEmployerViewModel);
+            return View();
         }
 
         public IActionResult About(int id)
         {
-            List<Employer> employer = context.Employers
-                .Where(js => js.Id == id)
-                .Include(js => js.Name)
-                .Include(js => js.Location)
-                .ToList();
             return View();
         }
     }
