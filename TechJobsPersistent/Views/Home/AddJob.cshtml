@@ -1,4 +1,6 @@
-﻿<h1>Add a Job</h1>
+﻿@model TechJobsPersistent.ViewModels.AddJobViewModel;
+
+<h1>Add a Job</h1>
 
 <form asp-controller="Home" asp-action="ProcessAddJobForm" method="post">
     <div class="form-group">
@@ -7,6 +9,18 @@
         <span></span>
     </div>
 
+    <div class="form-group">
+        <label>Employer</label>
+        <input class="form-control" />
+        <span></span>
+    </div>
+
+    <div class="form-group">
+        <label>Jobs Skills</label>
+        <input class="form-control" />
+        <span></span>
+    </div>
+ 
     <input type="submit" value="Add Job" />
 </form>
 
