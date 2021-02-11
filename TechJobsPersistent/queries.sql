@@ -1,5 +1,5 @@
 --Part 1
-
+--SELECT id (int, PK), EmployerId(int), Name(varchar)
 --Part 2
 SELECT Name FROM Employer WHERE Location = "St. Louis City"
 --Part 3
