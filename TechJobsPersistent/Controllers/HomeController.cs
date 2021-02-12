@@ -54,7 +54,7 @@ namespace TechJobsPersistent.Controllers
                     {
                         JobId = newJob.Id,
                         Job = newJob,
-                        SkillId = Int32.Parse(selectedSkills[i])
+                        SkillId = int.Parse(selectedSkills[i])
                     };
 
                     context.JobSkills.Add(newJobSkill);
